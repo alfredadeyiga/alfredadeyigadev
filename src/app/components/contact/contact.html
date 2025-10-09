@@ -1,0 +1,71 @@
+<div
+  class="flex flex-col justify-center items-center bg-secondary gap-6 px-4 py-16 md:px-8 md:py-20 md:gap-12 2xl:px-[112px] 2xl:py-24"
+>
+  <app-heading
+    body="Feel free to reach out to me if you're looking for a frontend developer."
+    class="w-[290px] md:w-[576px]"
+  >
+    <app-tag title="Contact me" />
+  </app-heading>
+  <div class="flex flex-col justify-center items-center md:gap-4">
+    <div class="flex justify-center items-center gap-4 md:gap-5">
+      <div
+        class="email w-8 h-8 bg-[length:24px_24px] bg-center bg-no-repeat md:w-12 md:h-12 md:bg-auto"
+      ></div>
+      <p
+        class="text-lg leading-7 text-heading md:font-semibold md:leading-10 md:text-4xl"
+        #email
+      >
+        alfredadeyiga@gmail.com
+      </p>
+      <div
+        class="flex flex-col cursor-pointer items-center p-2 rounded-lg transition-all duration-200 ease-in-out hover:bg-border"
+        (click)="copyToClipboard(email.innerText, 'email')"
+      >
+        <div
+          class="absolute flex rounded-lg bg-gray px-2 py-1 mt-[-50px]"
+          *ngIf="copiedField === 'email'"
+        >
+          <p class="leading-5 text-body text-base">Copied!</p>
+        </div>
+        <div class="copy w-6 h-6 bg-contain md:w-8 md:h-8"></div>
+      </div>
+    </div>
+    <div class="flex justify-center items-center gap-4 md:gap-5">
+      <div
+        class="phone w-8 h-8 bg-[length:24px_24px] bg-center bg-no-repeat md:w-12 md:h-12 md:bg-auto"
+      ></div>
+      <p
+        class="text-lg leading-7 text-heading md:font-semibold md:leading-10 md:text-4xl"
+        #phone
+      >
+        +234 9031233487
+      </p>
+      <div
+        class="flex flex-col cursor-pointer items-center p-2 rounded-lg transition-all duration-200 ease-in-out hover:bg-border"
+        (click)="copyToClipboard(phone.innerText, 'phone')"
+      >
+        <div
+          class="absolute flex rounded-lg bg-gray px-2 py-1 mt-[-50px]"
+          *ngIf="copiedField === 'phone'"
+        >
+          <p class="leading-5 text-body text-base">Copied!</p>
+        </div>
+        <div class="copy w-6 h-6 bg-contain md:w-8 md:h-8"></div>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col justify-center items-center gap-2">
+    <p class="text-base leading-6 text-body">You can also find me on GitHub</p>
+    <div class="flex items-center gap-1">
+      <a
+        href="https://github.com/alfredadeyiga"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><div
+          class="github w-12 h-12 bg-no-repeat bg-center cursor-pointer rounded-lg transition-all duration-200 ease-in-out hover:bg-border"
+        ></div>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+.open {
+  background-image: url("/images/open.png");
+}
+
+@media (min-width: 768px) {
+  .project:nth-child(odd) .image {
+    border-radius: 0px 12px 12px 0px;
+  }
+
+  .project:nth-child(odd) .detail {
+    border-radius: 12px 0px 0px 12px;
+  }
+}

@@ -1,0 +1,32 @@
+<div
+  class="flex flex-col justify-center items-center bg-secondary gap-6 px-4 py-16 md:px-8 md:py-20 md:gap-12 2xl:px-[112px] 2xl:py-24"
+>
+  <app-heading body="My most recent experiences:">
+    <app-tag title="Experience" />
+  </app-heading>
+  <div
+    class="flex flex-col p-8 gap-4 bg-border rounded-xl max-w-4xl shadow-[0_25px_25px_rgba(0,0,0,0.15)] w-auto md:flex-row md:gap-8 2xl:gap-12"
+    *ngFor="let experience of experiences"
+  >
+    <div class="w-[206px]">
+      <img
+        class="w-[102px] h-[28px]"
+        src="{{ experience.image }}"
+        alt="{{ experience.name }}"
+      />
+    </div>
+    <div class="flex flex-col gap-4 w-auto order-2 md:w-[300px] md:order-1">
+      <h3 class="font-semibold text-lg text-heading leading-7 md:text-xl">
+        {{ experience.title }}
+      </h3>
+      <div class="flex flex-col gap-1">
+        <ol class="text-base leading-6 text-body pl-4 list-disc">
+          <li *ngFor="let detail of experience.details">{{ detail }}</li>
+        </ol>
+      </div>
+    </div>
+    <p class="text-base leading-6 order-1 text-hover md:order-2">
+      {{ experience.timeFrame }}
+    </p>
+  </div>
+</div>

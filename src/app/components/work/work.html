@@ -1,0 +1,47 @@
+<div
+  class="flex flex-col justify-center items-center bg-primary gap-6 px-4 py-16 md:px-8 md:py-20 md:gap-12 2xl:px-[112px] 2xl:py-24"
+>
+  <app-heading body="Projects I have recently worked on:">
+    <app-tag title="Projects" />
+  </app-heading>
+  <div
+    class="project flex bg-border flex-col w-full max-w-6xl shadow-[0_25px_25px_rgba(0,0,0,0.15)] rounded-xl md:flex-row md:odd:flex-row-reverse"
+    *ngFor="let project of projects"
+  >
+    <div
+      class="image box-border flex justify-center items-center p-8 bg-gray border-r border-border rounded-t-xl flex-1 md:p-12 md:rounded-tr-none md:rounded-l-xl"
+    >
+      <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer"
+        ><img
+          class="w-full aspect-[3/2] shadow-[0_4px_3px_rgba(0,0,0,0.1),_0_10px_8px_rgba(0,0,0,0.04)] rounded-xl cursor-pointer transition-all duration-200 ease-in-out hover:scale-105"
+          src="{{ project.image }}"
+          alt="{{ project.name }}"
+      /></a>
+    </div>
+    <div
+      class="detail flex flex-col p-8 gap-6 rounded-b-xl flex-1 md:p-12 md:rounded-bl-none md:rounded-r-xl"
+    >
+      <h3 class="font-semibold text-lg text-body leading-7 md:text-xl">
+        {{ project.name }}
+      </h3>
+      <h2 class="text-base text-body leading-6">
+        {{ project.description }}
+      </h2>
+      <div class="flex gap-2 flex-wrap">
+        <app-tag
+          title="{{ keyword }}"
+          *ngFor="let keyword of project.keywords"
+        />
+      </div>
+      <div class="flex">
+        <div
+          class="flex justify-center items-center p-1.5 cursor-pointer rounded-lg transition-all duration-200 ease-in-out hover:bg-secondary"
+        >
+          <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer"
+            ><div class="open w-6 h-6 bg-contain"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

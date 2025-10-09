@@ -1,0 +1,91 @@
+<div class="flex flex-col sticky top-0 z-30">
+  <div
+    class="flex justify-between items-center p-4 gap-4 bg-primary border-b border-border md:px-8 2xl:px-[112px]"
+  >
+    <a routerLink="/" (click)="scrollTop()"
+      ><p class="font-bold text-2xl text-heading cursor-pointer md:text-3xl">
+        {{ "{ alfred.dev }" }}
+      </p></a
+    >
+    <div class="hidden md:flex md:items-center md:gap-6">
+      <a href="#about"
+        ><p
+          class="font-medium text-base text-body cursor-pointer transition-all duration-200 ease-in-out hover:text-heading"
+        >
+          About
+        </p></a
+      >
+      <a href="#projects"
+        ><p
+          class="font-medium text-base text-body cursor-pointer transition-all duration-200 ease-in-out hover:text-heading"
+        >
+          Projects
+        </p></a
+      >
+      <a href="#contact"
+        ><p
+          class="font-medium text-base text-body cursor-pointer transition-all duration-200 ease-in-out hover:text-heading"
+        >
+          Contact
+        </p></a
+      >
+      <canvas class="w-0 h-6 border border-border"></canvas>
+      <div class="flex items-center gap-4">
+        <div
+          class="icon w-9 h-9 bg-no-repeat bg-center cursor-pointer p-1.5 rounded-lg transition-all duration-200 ease-in-out hover:bg-border"
+          (click)="changeTheme()"
+        ></div>
+        <a href="/files/CV.pdf" target="_blank" rel="noopener noreferrer"
+          ><button
+            class="flex px-4 py-1.5 bg-heading rounded-xl font-medium text-base leading-6 text-secondary transition-all duration-200 ease-in-out cursor-pointer hover:bg-hover"
+          >
+            Download CV
+          </button></a
+        >
+      </div>
+    </div>
+    <div
+      class="menu cursor-pointer w-6 h-6 md:hidden"
+      (click)="toggleMenuOpen()"
+      [ngClass]="{ close: isMenuOpen }"
+    ></div>
+  </div>
+
+  <div
+    class="h-[250px] bg-primary z-10 md:hidden"
+    *ngIf="isMenuOpen"
+    #dropdownRef
+  >
+    <div class="box-border flex flex-col p-4 gap-4 border-b border-border">
+      <a (click)="closeAndScrollTo('about')"
+        ><p class="font-medium text-base leading-6 text-body">About</p></a
+      >
+      <a (click)="closeAndScrollTo('projects')"
+        ><p class="font-medium text-base leading-6 text-body">Projects</p></a
+      >
+      <a (click)="closeAndScrollTo('contact')"
+        ><p class="font-medium text-base leading-6 text-body">Contact</p></a
+      >
+    </div>
+    <div class="flex flex-col p-4 gap-4">
+      <div class="flex justify-between">
+        <p class="font-medium text-base leading-6 text-body">Switch Theme</p>
+        <div
+          class="icon w-6 h-6 bg-no-repeat bg-center"
+          (click)="changeTheme()"
+        ></div>
+      </div>
+      <a
+        href="/files/CV.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        (click)="closeDropdown()"
+        ><button
+          class="flex justify-center items-center px-4 py-1.5 bg-heading rounded-xl font-medium text-base leading-6 text-secondary w-full"
+        >
+          Download CV
+        </button></a
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    font-family: "Inter", sans-serif;
+  }
+
+  :root {
+    --primary: #030712;
+    --secondary: #111827;
+    --gray: #374151;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --border: #1f2937;
+    --hover: #e5e7eb;
+  }
+
+  .light {
+    --primary: #ffffff;
+    --secondary: #f9fafb;
+    --gray: #e5e7eb;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --border: #f3f4f6;
+    --hover: #374151;
+  }
+}
+
+@layer components {
+  body.light .menu {
+    background-image: url("/images/menu-light.png");
+  }
+
+  body.light .menu.close {
+    background-image: url("/images/close-light.png");
+  }
+
+  body.light .icon {
+    background-image: url("/images/dark-icon.png");
+  }
+
+  body.light .location {
+    background-image: url("/images/location-light.png");
+  }
+
+  body.light .open {
+    background-image: url("/images/open-light.png");
+  }
+
+  body.light .email {
+    background-image: url("/images/email-light.png");
+  }
+
+  body.light .phone {
+    background-image: url("/images/phone-light.png");
+  }
+
+  body.light .copy {
+    background-image: url("/images/copy-light.png");
+  }
+
+  body.light .github {
+    background-image: url("/images/github-light.png");
+  }
+}
