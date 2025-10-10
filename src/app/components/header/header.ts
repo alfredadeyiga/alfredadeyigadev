@@ -44,17 +44,24 @@ export class Header {
     }
   }
 
-  changeTheme() {
-    const theme = localStorage.getItem('theme')
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (this.isMenuOpen) {
+      this.isMenuOpen = false;
+    }
+  }
 
-    if(theme === 'dark') {
-      document.body.classList.add('light')
-      localStorage.setItem('theme', 'light')
+  changeTheme() {
+    const theme = localStorage.getItem('theme');
+
+    if (theme === 'dark') {
+      document.body.classList.add('light');
+      localStorage.setItem('theme', 'light');
     } else {
-      document.body.classList.remove('light')
-      localStorage.setItem('theme', 'dark')
+      document.body.classList.remove('light');
+      localStorage.setItem('theme', 'dark');
     }
 
-    this.isMenuOpen = false
+    this.isMenuOpen = false;
   }
 }
