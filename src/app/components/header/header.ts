@@ -8,6 +8,7 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 })
 export class Header {
   isMenuOpen: boolean = false;
+  ignoreScroll: boolean = true;
 
   @ViewChild('dropdownRef') dropdownRef!: ElementRef;
 
@@ -18,6 +19,14 @@ export class Header {
 
   toggleMenuOpen() {
     this.isMenuOpen = !this.isMenuOpen;
+
+    if (this.isMenuOpen) {
+      this.ignoreScroll = true;
+    }
+
+    setTimeout(() => {
+      this.ignoreScroll = false;
+    }, 300);
   }
 
   closeDropdown() {
@@ -44,9 +53,9 @@ export class Header {
     }
   }
 
-  @HostListener('window:scroll', [])
+  @HostListener('document:scroll', [])
   onWindowScroll() {
-    if (this.isMenuOpen) {
+    if (this.isMenuOpen && !this.ignoreScroll) {
       this.isMenuOpen = false;
     }
   }
