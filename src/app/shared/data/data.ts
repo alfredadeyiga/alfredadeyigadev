@@ -36,7 +36,6 @@ export const projects = [
       'TailwindCSS',
       'API',
       'Supabase',
-      'Backend',
       'React Query',
       'Recharts',
     ],
